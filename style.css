@@ -3,3 +3,29 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+:root {
+    --header-footer-bg: #fddfc2;
+
+    --space-xs: 0.25rem;
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+}
+
+.header, .footer {
+    text-align: center;
+    padding: var(--space-sm);
+    background: var(--header-footer-bg);
+}
