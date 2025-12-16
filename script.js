@@ -18,3 +18,25 @@ function addBookToLibrary(title, author, pages, read) {
     const book = new Book(title, author, pages, read);
     myLibrary.push(book);
 }
+
+function displayBooks() {
+    const booksGrid = document.querySelector(".books");
+
+    myLibrary.forEach((book) => {
+        const bookCard = document.createElement("div");
+        bookCard.classList.add("book-card");
+
+        const bookTitle = document.createElement("h3");
+        bookTitle.textContent = book.title;
+
+        const bookAuthor = document.createElement("h4");
+        bookAuthor.textContent = book.author;
+
+        bookCard.appendChild(bookTitle);
+        bookCard.appendChild(bookAuthor);
+
+        booksGrid.appendChild(bookCard);
+    });
+}
+
+displayBooks();

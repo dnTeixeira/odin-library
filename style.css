@@ -6,6 +6,7 @@
 
 :root {
     --header-footer-bg: #fddfc2;
+    --book-bg: #bd7500;
 
     --space-xs: 0.25rem;
     --space-sm: 0.5rem;
@@ -22,10 +23,31 @@ body {
 
 .container {
     flex: 1;
+    padding: var(--space-xl);
 }
 
 .header, .footer {
     text-align: center;
     padding: var(--space-sm);
     background: var(--header-footer-bg);
+}
+
+.books {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: var(--space-xl);
+    margin-top: 1rem;
+}
+
+.book-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 20vh;
+    background: var(--book-bg);
+    border-left: 8px solid black;
+    border-radius: 0.5rem;
+    padding: var(--space-lg);
+    text-align: center;
 }
