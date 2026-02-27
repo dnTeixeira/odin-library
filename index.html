@@ -8,11 +8,49 @@
     <title>Library</title>
 </head>
 <body>
+
     <header class="header">📖 Library</header>
     <div class="container">
-        <h1>📚 Books</h1>
+        <div class="books-header">
+            <h1>📚 Books</h1>
+            <button id="new-book-btn">➕ New Book</button>
+        </div>
+        <dialog id="new-book-dialog">
+            <form id="new-book-form">
+                <div class="form-header">
+                    <h3>📘 Add a new book</h3>
+                    <button id="close-btn" type="button">✕</button>
+                </div>
+
+                <div class="text-input">
+                    <label for="book-title">Book Title:</label>
+                    <input type="text" name="book-title" id="book-title">
+                </div>
+
+                <div class="text-input">
+                    <label for="book-author">Book Author:</label>
+                    <input type="text" name="book-author" id="book-author">
+                </div>
+
+                <div class="text-input">
+                    <label for="book-pages">Number of Pages:</label>
+                    <input type="number" name="book-pages" id="book-pages">
+                </div>
+
+                <div>
+                    <input type="radio" name="been-read" id="read" value="read">
+                    <label for="read">Read</label>
+                </div>
+
+                <div>
+                    <input type="radio" name="been-read" id="not-read" value="not-read">
+                    <label for="not-read">Not Read</label>
+                </div>
+
+                <button id="confirm-btn">Confirm</button>
+            </form>
+        </dialog>
         <div class="books">
-    
         </div>
     </div>
     <footer class="footer">The Odin Project © 2025</footer>

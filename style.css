@@ -5,8 +5,9 @@
 }
 
 :root {
-    --header-footer-bg: #fddfc2;
+    --header-footer-bg: #ffeaa4;
     --book-bg: #bd7500;
+    --button-bg: var(--header-footer-bg);
 
     --space-xs: 0.25rem;
     --space-sm: 0.5rem;
@@ -21,6 +22,14 @@ body {
     flex-direction: column;
 }
 
+dialog {
+    margin: auto;
+    padding: var(--space-xl);
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0px 2px 10px gray;
+}
+
 .container {
     flex: 1;
     padding: var(--space-xl);
@@ -28,8 +37,26 @@ body {
 
 .header, .footer {
     text-align: center;
+    font-weight: bold;
     padding: var(--space-sm);
     background: var(--header-footer-bg);
+    box-shadow: 1px 1px 5px lightgray;
+}
+
+.books-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.books-header button {
+    width: 6rem;
+    height: 2.5rem;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    background: var(--button-bg);
+    border: none;
+    border-radius: 0.5rem;
+    box-shadow: 1px 1px 5px lightgray;
 }
 
 .books {
@@ -50,4 +77,47 @@ body {
     border-radius: 0.5rem;
     padding: var(--space-lg);
     text-align: center;
+}
+
+.form-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-input {
+    display: flex;
+    flex-direction: column;
+}
+
+.text-input > input {
+    width: 20vw;
+    height: 4vh;
+    padding: var(--space-xs);
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+}
+
+#new-book-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+#close-button {
+    font-size: 1rem;
+    background: none;
+    border: none;
+}
+
+#close-button:hover {
+    color: var(--header-footer-bg);
+}
+
+#confirm-btn {
+    padding: var(--space-sm);
+    border: none;
+    border-radius: 0.5rem;
+    background: var(--button-bg);
+    color: black;
+    font-weight: bold;
 }
