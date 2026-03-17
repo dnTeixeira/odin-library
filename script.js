@@ -1,4 +1,4 @@
-const myLibrary = [];
+let myLibrary = [];
 
 const closeDialog = document.querySelector("#close-btn");
 const newBookButton = document.querySelector("#new-book-btn");
@@ -65,6 +65,7 @@ function displayBooks() {
     myLibrary.forEach((book) => {
         const bookCard = document.createElement("div");
         bookCard.classList.add("book-card");
+        bookCard.dataset.id = book.id;
 
         const bookTitle = document.createElement("h3");
         bookTitle.textContent = book.title;
@@ -72,9 +73,24 @@ function displayBooks() {
         const bookAuthor = document.createElement("h4");
         bookAuthor.textContent = book.author;
 
+        const deleteButton = document.createElement("button");
+
+        deleteButton.addEventListener("click", () => {
+            myLibrary = myLibrary.filter(b => b.id !== book.id);
+            displayBooks();
+        })
+
+        deleteButton.classList.add("delete-book");
+        deleteButton.textContent = "✕";
+
+        bookCard.appendChild(deleteButton);
         bookCard.appendChild(bookTitle);
         bookCard.appendChild(bookAuthor);
 
         booksGrid.appendChild(bookCard);
     });
+}
+
+function deleteBook(book) {
+    book.remove();
 }

@@ -97,19 +97,19 @@ dialog {
     border-radius: 0.5rem;
 }
 
+.delete-book, #close-btn {
+    font-size: 1rem;
+    background: none;
+    border: none;
+}
+
 #new-book-form {
     display: flex;
     flex-direction: column;
     gap: var(--space-lg);
 }
 
-#close-button {
-    font-size: 1rem;
-    background: none;
-    border: none;
-}
-
-#close-button:hover {
+#close-btn:hover {
     color: var(--header-footer-bg);
 }
 
