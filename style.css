@@ -13,13 +13,14 @@
     --space-sm: 0.5rem;
     --space-md: 1rem;
     --space-lg: 1.5rem;
-    --space-xl: 2rem;
+    --space-xl: 3rem;
 }
 
 body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: "Roboto", sans-serif;
 }
 
 dialog {
@@ -36,9 +37,8 @@ dialog {
 }
 
 .header, .footer {
-    text-align: center;
     font-weight: bold;
-    padding: var(--space-sm);
+    padding: var(--space-sm) var(--space-xl);
     background: var(--header-footer-bg);
     box-shadow: 1px 1px 5px lightgray;
 }
@@ -59,24 +59,40 @@ dialog {
     box-shadow: 1px 1px 5px lightgray;
 }
 
+.hero-container {
+    display: flex;
+    width: 100%;
+    height: 30vh;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--header-footer-bg);
+    padding: var(--space-lg) var(--space-xl);
+}
+
+.hero-container img {
+    height: 110%;
+}
+
 .books {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-rows: repeat(auto-fit, 1fr);
+    gap: var(--space-lg);
     margin-top: 1rem;
 }
 
 .book-card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 20vh;
+    justify-content: space-evenly;
+    width: 20vh;
+    height: 30vh;
     background: var(--book-bg);
     border-left: 8px solid black;
     border-radius: 0.5rem;
     padding: var(--space-lg);
     text-align: center;
+    color: burlywood;
 }
 
 .form-header {
@@ -101,6 +117,10 @@ dialog {
     font-size: 1rem;
     background: none;
     border: none;
+}
+
+.footer {
+    text-align: center;
 }
 
 #new-book-form {
