@@ -21,9 +21,9 @@ confirmButton.addEventListener("click", (e) => {
     let title = document.querySelector("#book-title").value;
     let author = document.querySelector("#book-author").value;
     let pages = document.querySelector("#book-pages").value;
-    let read = "read";
+    let isRead = document.querySelector('input[name="been-read"]:checked');
     
-    addBookToLibrary(title, author, pages, read);
+    addBookToLibrary(title, author, pages, isRead);
 
     newBookForm.reset();
     newBookDialog.close();
@@ -31,10 +31,10 @@ confirmButton.addEventListener("click", (e) => {
     title = "";
     author = "";
     pages = null;
-    read = null;
+    isRead = null;
 })
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages, isRead) {
     if(!new.target) {
         throw Error("You must use the 'new' operator to call the constructor");
     }
@@ -42,14 +42,22 @@ function Book(title, author, pages, read) {
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = read;
+    this.isRead = isRead.value == "read" ? "Read" : "Not Read";
     this.info = function() {
-        return `${title} by ${author}, ${pages} pages, ${read}`;
+        return `${title} by ${author}, ${pages} pages, ${isRead}`;
     }
 }
 
-function addBookToLibrary(title, author, pages, read) {
-    const book = new Book(title, author, pages, read);
+Book.prototype.changeReadStatus = function(book) {
+    if(book.isRead == "Read") {
+        book.isRead = "Not Read";
+    } else {
+        book.isRead = "Read"
+    }
+}
+
+function addBookToLibrary(title, author, pages, isRead) {
+    const book = new Book(title, author, pages, isRead);
     myLibrary.push(book);
     displayBooks();
 }
@@ -73,11 +81,20 @@ function displayBooks() {
         const bookAuthor = document.createElement("h4");
         bookAuthor.textContent = book.author;
 
+        const isBookRead = document.createElement("div");
+        isBookRead.textContent = book.isRead;
+        isBookRead.id = "isRead-card";
+
         const deleteButton = document.createElement("button");
 
         deleteButton.addEventListener("click", () => {
             myLibrary = myLibrary.filter(b => b.id !== book.id);
             displayBooks();
+        })
+
+        isBookRead.addEventListener("click", () => {
+            book.changeReadStatus(book);
+            isBookRead.textContent = book.isRead;
         })
 
         deleteButton.classList.add("delete-book");
@@ -86,6 +103,7 @@ function displayBooks() {
         bookCard.appendChild(deleteButton);
         bookCard.appendChild(bookTitle);
         bookCard.appendChild(bookAuthor);
+        bookCard.appendChild(isBookRead);
 
         booksGrid.appendChild(bookCard);
     });

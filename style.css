@@ -75,7 +75,7 @@ dialog {
 
 .books {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-template-rows: repeat(auto-fit, 1fr);
     gap: var(--space-lg);
     margin-top: 1rem;
@@ -140,4 +140,15 @@ dialog {
     background: var(--button-bg);
     color: black;
     font-weight: bold;
+}
+
+#isRead-card {
+    background: var(--header-footer-bg);
+    padding: var(--space-sm);
+    border-radius: 0.5rem;
+    color: var(--book-bg);
+}
+
+#isRead-card:hover {
+    cursor: pointer;
 }
